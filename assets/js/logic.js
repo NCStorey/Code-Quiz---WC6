@@ -1,14 +1,43 @@
-// event listener 1 
 // to start timer once the game begins
-/* <div class="timer">Time: <span id="time">0</span></div> */
-//set class to hide
-// <div id="start-screen" class="start">
-//set class hide of questions to off
 
-let startButton = document.querySelector("#startButton")
-let startScreen = document.querySelector("#start-screen")
+
+let startButton = document.querySelector("#startButton");
+let startScreen = document.querySelector("#start-screen");
+let questionScreen = document.querySelector ("#questions");
+let endScreen = document.querySelector("#end-screen");
+let timeSpan = document.querySelector("#time");
+
+let secondsLeft = 60;
+
+//timer function
+function countDown(){
+    //function to set timer
+    let timer = setInterval(function(){
+        secondsLeft--;
+        //entering the time left into the html
+        timeSpan.innerText = secondsLeft;
+
+        //if statement to stop timer when it reaches 0
+        if(secondsLeft === 0){
+            clearInterval(timer)
+            //clears question screen
+            questionScreen.classList.toggle("hide");
+            //reveals finish screen
+            endScreen.classList.toggle("hide");
+        }
+    //sets interval to seconds
+    }, 1000);
+
+}
 
 startButton.addEventListener("click", function(){
-    startScreen.classList.toggle("hide")
-    
+    //hide start screen
+    startScreen.classList.toggle("hide");
+    //show question screen
+    questionScreen.classList.toggle("hide");
+    //begins timer
+    countDown()
+
 })
+
+//init function to get the highscores from local 
