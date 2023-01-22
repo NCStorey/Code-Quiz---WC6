@@ -5,13 +5,17 @@ let endScreen = document.querySelector("#end-screen");
 let timeSpan = document.querySelector("#time");
 let questionTitle = document.querySelector("#question-title")
 let choices = document.querySelector("#choices")
+let choice1btn = document.querySelector("#btn1")
+let choice2btn = document.querySelector("#btn2")
+let choice3btn = document.querySelector("#btn3")
 
 let secondsLeft = 60;
 let randomInt = 0;
-let choicebtn = 0;
-let choice1btn = 0;
-let choice2btn = 0;
-let choice3btn = 0;
+
+
+
+
+
 
 //init function to get the highscores from local 
 
@@ -52,17 +56,12 @@ function retrieveQ(){
         //creates random interger from 0 to questions array length. then uses the interger as the index to choose the question randomly
         randomInt = (Math.floor(Math.random()*questions.length))
         questionTitle.textContent = questions[randomInt].title;
-        
-        function makeChoiceButton(choicenumber){
-            choicebtn = document.createElement("button");
-            choicebtn.textContent = choicenumber;
-            document.getElementById("choices").appendChild(choicebtn)
-            return;
-        }}
+        }
 
-        choice1btn = makeChoiceButton(questions[randomInt].choice1[0])
-        choice2btn = makeChoiceButton(questions[randomInt].choice2[0])
-        choice3btn = makeChoiceButton(questions[randomInt].choice3[0])
+        choice1btn.innerHTML=(questions[randomInt].choice1[0])
+        choice2btn.innerHTML=(questions[randomInt].choice2[0])
+        choice3btn.innerHTML=(questions[randomInt].choice3[0])
+
 }
 
 startButton.addEventListener("click", function(){
@@ -75,9 +74,12 @@ startButton.addEventListener("click", function(){
     retrieveQ()
 })
 
-choices.addEventListener("click", function(){
-    
+choices.addEventListener("click", function(click){
+    let clickedBtn = click.target;
 
+    if (clickedBtn === choice1btn){
+        console.log("click")
+    }
 
 
 
