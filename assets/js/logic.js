@@ -10,6 +10,7 @@ let choice2btn = document.querySelector("#btn2")
 let choice3btn = document.querySelector("#btn3")
 let mark = document.querySelector("#mark")
 let finalScore = document.querySelector("#final-score")
+let initials = document.querySelector("#initials")
 let submitbtn = document.querySelector("#submit")
 
 let secondsLeft = 20;
@@ -110,4 +111,8 @@ choices.addEventListener("click", function(click){
     retrieveQ()
 })
 
-submitbtn.addEventListener("click", function())
+submitbtn.addEventListener("click", function(){
+initials = initials.value
+localStorage.setItem("initials", initials)
+
+})
