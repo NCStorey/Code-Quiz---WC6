@@ -10,8 +10,9 @@ let choice2btn = document.querySelector("#btn2")
 let choice3btn = document.querySelector("#btn3")
 let mark = document.querySelector("#mark")
 let finalScore = document.querySelector("#final-score")
+let submitbtn = document.querySelector("#submit")
 
-let secondsLeft = 60;
+let secondsLeft = 20;
 let randomInt = 0;
 let score = 0;
 
@@ -27,7 +28,7 @@ function countDown(){
         timeSpan.innerText = secondsLeft;
 
         //if statement to stop timer when it reaches 0
-        if(secondsLeft <= 0){
+        if(secondsLeft <= 0 || questions.length === 0){
             clearInterval(timer)
             //clears question screen
             questionScreen.classList.toggle("hide");
@@ -50,11 +51,7 @@ function rmvQfromArray(){
 
 function retrieveQ(){
 
-    if (questions.length === 0) {
-        questionScreen.classList.toggle("hide")
-        endScreen.classList.toggle("hide");
-    }
-    else {for (let index = 0; index < questions.length; index++) {
+    for (let index = 0; index < questions.length; index++) {
         //creates random interger from 0 to questions array length. then uses the interger as the index to choose the question randomly
         randomInt = (Math.floor(Math.random()*questions.length));
         questionTitle.textContent = questions[randomInt].title;
@@ -62,20 +59,19 @@ function retrieveQ(){
 
         choice1btn.innerText=(questions[randomInt].choice1[0])
         choice2btn.innerText=(questions[randomInt].choice2[0])
-        choice3btn.innerText=(questions[randomInt].choice3[0])}
+        choice3btn.innerText=(questions[randomInt].choice3[0])
 }
+
 
 function correctAnswer(){
     mark.innerText="correct"
     score = score + 1
     finalScore.innerText=score
-    console.log(score)
 }
 
 function incorrectAnswer(){
     mark.innerText="Incorrect"
     secondsLeft = secondsLeft - 10
-    console.log(score)
 }
 
 startButton.addEventListener("click", function(){
@@ -113,3 +109,5 @@ choices.addEventListener("click", function(click){
     rmvQfromArray()
     retrieveQ()
 })
+
+submitbtn.addEventListener("click", function())
