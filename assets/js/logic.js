@@ -17,7 +17,7 @@ let secondsLeft = 20;
 let randomInt = 0;
 let score = 0;
 
-//init function to get the highscores from local 
+
 
 
 //timer function
@@ -51,6 +51,7 @@ function rmvQfromArray(){
 
 
 function retrieveQ(){
+if (questions.length >= 1){
 
     for (let index = 0; index < questions.length; index++) {
         //creates random interger from 0 to questions array length. then uses the interger as the index to choose the question randomly
@@ -61,7 +62,7 @@ function retrieveQ(){
         choice1btn.innerText=(questions[randomInt].choice1[0])
         choice2btn.innerText=(questions[randomInt].choice2[0])
         choice3btn.innerText=(questions[randomInt].choice3[0])
-}
+}}
 
 
 function correctAnswer(){
@@ -107,12 +108,17 @@ choices.addEventListener("click", function(click){
         else (incorrectAnswer())
     }
 
+    if (score === 0){
+        finalScore.innerText = "zero"
+    } 
+
     rmvQfromArray()
     retrieveQ()
 })
 
 submitbtn.addEventListener("click", function(){
-initials = initials.value
-localStorage.setItem("initials", initials)
-
+    initials = initials.value
+    localStorage.setItem("initials", initials)
+    localStorage.setItem("score", score)
+    localStorage.setItem("time", secondsLeft)
 })
