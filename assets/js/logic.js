@@ -17,6 +17,10 @@ let secondsLeft = 20;
 let randomInt = 0;
 let score = 0;
 
+let initialsArr = []
+let scoresArr = []
+let timesArr = []
+
 
 
 
@@ -117,8 +121,20 @@ choices.addEventListener("click", function(click){
 })
 
 submitbtn.addEventListener("click", function(){
-    initials = initials.value
-    localStorage.setItem("initials", initials)
-    localStorage.setItem("score", score)
-    localStorage.setItem("time", secondsLeft)
+
+    initials = initials.value;
+    initialsArr.push(initials);
+    scoresArr.push(score)
+    timesArr.push(secondsLeft)
+    initials.value = "";
+    score=0;
+    secondsLeft=20;
+    
+
+    localStorage.setItem("initials", JSON.stringify(initialsArr))
+    localStorage.setItem("score", JSON.stringify(scoresArr))
+    localStorage.setItem("time", JSON.stringify(timesArr))
+
+    endScreen.classList.toggle("hide");
+    startScreen.classList.toggle("hide");
 })

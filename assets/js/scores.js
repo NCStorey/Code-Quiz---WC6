@@ -1,18 +1,24 @@
 let highScoresOl = document.querySelector("#highscores")
 let clearBtn = document.querySelector("#clear")
-let initialsArr = []
-let scoresArr = []
-let timesArr = []
 
+
+function getScore(){
+    let storedScore = localStorage.getItem("score");
+
+
+}
 
 function getInitials (){
-    let storedInitials = localStorage.getItem("initials")
+    let storedInitials = localStorage.getItem("initials");
+    
+    let storedTime = localStorage.getItem("time");
+
     if (storedInitials === null){
         highScoresOl.innerText = "No high scores recorded yet"
     }
     else {
         let li = document.createElement("li")
-        li.textContent = "initials test"
+        li.textContent = storedInitials
         highScoresOl.appendChild(li)
 
     }
@@ -21,8 +27,4 @@ function getInitials (){
 
 getInitials ()
 
-function initialisation(){
-    getInitials()
-    getScore()
-    getTime()
-}
+
