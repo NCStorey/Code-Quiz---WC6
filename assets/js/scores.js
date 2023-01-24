@@ -5,13 +5,13 @@ let scoresArr = []
 let timesArr = []
 
 
+
 function getScore(){
     let storedScore = JSON.parse(localStorage.getItem("score"));
     let storedTime = JSON.parse(localStorage.getItem("time"));
 
     scoresArr.push(storedScore);
     timesArr.push(storedTime);
-    console.log(initialsArr)
 }
 
 function getInitials (){
@@ -22,7 +22,7 @@ function getInitials (){
     }
     else {
         initialsArr.push(storedInitials);
-        
+
         getScore()
     }
 }
@@ -30,6 +30,7 @@ function getInitials (){
 getInitials ()
 
 function rendorScores(){
+
         for (let i = 0; i < initialsArr.length; i++){
 
         let li = document.createElement("li")
@@ -39,3 +40,6 @@ function rendorScores(){
 }
 
 rendorScores()
+
+console.log(initialsArr)
+console.log(...initialsArr)
