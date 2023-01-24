@@ -12,6 +12,7 @@ let mark = document.querySelector("#mark")
 let finalScore = document.querySelector("#final-score")
 let initials = document.querySelector("#initials")
 let submitbtn = document.querySelector("#submit")
+let input = document.querySelector("input")
 
 let secondsLeft = 20;
 let randomInt = 0;
@@ -124,17 +125,13 @@ submitbtn.addEventListener("click", function(){
 
     initials = initials.value;
     initialsArr.push(initials);
-    scoresArr.push(score)
-    timesArr.push(secondsLeft)
-    initials.value = "";
-    score=0;
-    secondsLeft=20;
-    
+    scoresArr.push(score);
+    timesArr.push(secondsLeft);
 
     localStorage.setItem("initials", JSON.stringify(initialsArr))
     localStorage.setItem("score", JSON.stringify(scoresArr))
     localStorage.setItem("time", JSON.stringify(timesArr))
 
-    endScreen.classList.toggle("hide");
-    startScreen.classList.toggle("hide");
+    input.value = "";
+    score = 0;
 })
