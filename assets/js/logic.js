@@ -152,10 +152,6 @@ submitbtn.addEventListener("click", function(){
 
     input.value = "";
     score = 0;
-
-    endScreen.classList.toggle("hide")
-    startScreen.classList.toggle("hide")
-
     }
 })
 
