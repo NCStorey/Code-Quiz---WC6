@@ -18,5 +18,24 @@ let questions = [
     choice1: ["winks", false],
     choice2: ["clicks", true],
     choice3: ["smiles", false],
-    }]
+    },
+
+    {title: "In the house analogy what is Javascript?",
+    choice1: ["The foundations", false],
+    choice2: ["The decor", false],
+    choice3: ["The appliances", true],
+    },
+
+    {title: "which of these are the variable setters in Javascript",
+    choice1: ["red, yellow, blue", false],
+    choice2: ["let, var and const", true],
+    choice3: ["car, truck and plane", false],
+    },
+
+    {title: "local storage puts things into the -",
+    choice1: ["browser", true],
+    choice2: ["fridge", false],
+    choice3: ["cloud", false],
+    }
+]
 
