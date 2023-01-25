@@ -1,4 +1,5 @@
-
+// questions for quiz
+//feel free to add any additional questions but please follow the format below. 3 choices with only one of them having a true index in [1].
 
 let questions = [
     

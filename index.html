@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
-
+    <!-- CSS style sheet link -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
 
 
-
-
   <body>
+    <!-- button top left to view previous high scores stored in local storage -->
     <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
+    <!-- timer span -->
     <div class="timer">Time: <span id="time">0</span></div>
 
     <div class="wrapper">
+      <!-- start screen with instructions -->
       <div id="start-screen" class="start">
         <h1>Coding Quiz Challenge</h1>
         <p>
@@ -26,9 +27,12 @@
           limit. Keep in mind that incorrect answers will penalize your
           score/time by ten seconds!
         </p>
+
+        <!-- button has event listener on javascript to "hide" start screen and show the questions-->
         <button id="startButton">Start Quiz</button>
       </div>
 
+      <!-- structure of question screen - title and div containing 3 buttons -->
       <div id="questions" class="hide">
         <h2 id="question-title">questions here</h2>
         <div id="choices" class="choices">
@@ -39,11 +43,14 @@
         </div>
       </div>
 
+      <!-- final screen which shows when all questions answered or timer goes to 0 -->
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
         <p>
+          <!-- user has ability to enter initials which when submitted will enter local storage to be displayed in highscores area -->
           Enter initials: <input type="text" id="initials" max="3" />
+          <!-- submiting their initials takes them to the highscores page to view others scores -->
           <a href="highscores.html"><button  id="submit">Submit</button></a>
         </p>
       </div>

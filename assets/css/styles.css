@@ -58,6 +58,7 @@ li:nth-child(odd) {
   max-width: 600px;
 }
 
+/* this class is used to hide screens when they are not needed */
 .hide {
   display: none;
 }
